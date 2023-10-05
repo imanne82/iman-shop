@@ -1,0 +1,489 @@
+@font-face {
+  font-family: iranSans;
+  src: url("../FontsIranSans/ttf/IRANSansWeb(FaNum).ttf") format("opentype"),
+  url("../FontsIranSans/ttf/IRANSansWeb(FaNum)_Bold.ttf") format("opentype"),
+  url("../FontsIranSans/ttf/IRANSansWeb(FaNum)_Light.ttf") format("opentype"),
+  url("../FontsIranSans/ttf/IRANSansWeb(FaNum)_Medium.ttf") format("opentype"),
+  url("../FontsIranSans/ttf/IRANSansWeb(FaNum)_UltraLight.ttf") format("opentype");
+}
+
+* {
+  font-family: iranSans, 'sans-serif';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  direction: rtl;
+  scroll-behavior: smooth;
+  //outline: 2px solid black;
+}
+
+@import "mixins";
+@import "variables";
+
+.scroll-page {
+  position: fixed;
+  width: 100%;
+  height: 2px;
+
+  .scroll {
+
+    height: 100%;
+    background: $bgColor-product;
+    box-shadow: 0 1px 6px $bgColor-product;
+  }
+}
+
+
+/*               container                     */
+#container {
+  width: 100%;
+}
+
+#header {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../image/background.svg");
+  background-position: bottom;
+  background-size: cover;
+  display: flex;
+  justify-content: left;
+
+  #login-register {
+    @include flexbox;
+    position: absolute;
+    right: 0;
+    width: 8rem;
+    margin: 5rem;
+    border-radius: 5px;
+    border: 3px solid $whiteColor;
+
+    a {
+      color: $whiteColor;
+      text-decoration: none;
+    }
+
+  }
+
+  #background-site {
+    width: 27%;
+    height: 100%;
+    background-color: white;
+    opacity: .5;
+  }
+}
+
+#user-info {
+  position: absolute;
+  right: 15rem;
+  top: 4.8rem;
+
+  .icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 1px 6px $whiteColor;
+    cursor: pointer;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+}
+
+#user-info {
+  .list {
+    display: none;
+    list-style: none;
+    background-color: $whiteColor;
+    border-radius: 10px;
+
+    .list-item {
+      padding: 10px;
+      border-bottom: 1px solid;
+      margin: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+#start-site {
+  position: absolute;
+  width: 50%;
+  height: 100vh;
+  @include flexbox {
+    flex-flow: column;
+  }
+  top: 0;
+  right: 50%;
+
+  #logo-start img {
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 6px black;
+  }
+}
+
+#btn-start {
+  @include flexbox {
+    flex-flow: column;
+  }
+;
+
+  h1 {
+    color: $whiteColor;
+    text-shadow: 0 1px 6px black;
+  }
+
+  button {
+    width: 10rem;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    margin-left: 3rem;
+    cursor: pointer;
+    box-shadow: 0 1px 6px black;
+  }
+}
+
+/*                                      navbar                                   */
+#navbar {
+  margin: 20px 0 20px 0;
+  width: 100%;
+  height: auto;
+}
+
+#search-box-container {
+  width: 100%;
+  @include flexbox;
+  height: 3rem;
+  border-radius: 10px;
+}
+
+#search-box {
+  width: 30rem;
+  height: 100%;
+  @include flexbox(space-evenly);;
+  border: 1px solid $borderColor;
+  border-radius: 10px;
+
+  input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 18rem;
+  }
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+  }
+}
+
+/*                   groping               */
+
+#groping-product-container {
+  margin-top: 20px;
+  width: 100%;
+  height: auto;
+
+  .header-groping {
+    display: inline-block;
+    position: relative;
+    margin: 1rem 2rem;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 30%;
+      height: 1px;
+      background: red;
+      bottom: 0;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 50%;
+      height: 1px;
+      background: firebrick;
+      top: 42px;
+    }
+  }
+
+}
+
+#groping {
+  margin: 10px 0 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  height: auto;
+  align-items: center;
+
+  @include nameGroupingProduct;
+
+}
+
+/*                      Categories of discounts               */
+
+#categoriesDiscounts {
+  @extend #groping-product-container;
+
+  #containerDiscounts-product {
+    @include flexbox(revert) {
+      flex-wrap: nowrap;
+    }
+    overflow-x: scroll;
+  }
+
+
+}
+
+/*                               product             */
+
+.product {
+  @include flexbox;
+  margin: 20px 1rem 25px 0.5rem;
+  flex-flow: column;
+  border-radius: 10px;
+  max-width: 245px;
+  min-width: 245px;
+  min-height: 365px;
+  font-size: 15px;
+  border: 1px solid $bgColorHover-product;
+  background: $bgColor-product;
+  color: $whiteColor;
+  transition: .3s;
+  box-shadow: 0 1px 6px $bgColorHover-product;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background: $bgColorHover-product;
+
+  }
+}
+
+.product:hover .priceProduct :nth-child(2) {
+  background: $bgColor-product;
+}
+
+.imgProduct {
+  @include flexbox;
+  min-height: 180px;
+  border-radius: 10px / 20px;
+  padding: 10px;
+  width: 100%;
+  background: white;
+}
+
+.imgProduct img {
+  border-radius: 3px;
+  width: 180px;
+  height: 180px;
+  padding: 10px;
+}
+
+.infoProduct {
+  padding: 10px;
+  text-align: justify;
+  min-height: 120px;
+}
+
+.priceProduct {
+  @include flexbox(space-evenly);
+  margin: 10px;
+  width: 100%;
+}
+
+.priceProduct :nth-child(2) {
+  @include flexbox;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 1rem;
+  color: white;
+  border-radius: 50%;
+  background: $bgColorHover-product;
+  box-shadow: 0 1px 6px $bgColorHover-product;
+}
+
+/*                               bestselling-product                           */
+#container-bestselling-product {
+  @extend #groping-product-container;
+
+  #bestselling-product {
+    @include flexbox {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+/*                        abut site                                           */
+#abut-site {
+  @extend #groping-product-container;
+  height: auto;
+}
+
+.box-abut {
+  @include flexbox;
+
+  .box-abut-item {
+    @include flexbox {
+      flex-flow: column;
+    }
+    @include nameGroupingProduct;
+
+    .nameGroupingProduct {
+      pointer-events: none;
+      margin: 0 3rem;
+    }
+  }
+}
+
+.box-abut-item span {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 1rem;
+}
+
+.box-abut-footer {
+  @extend .box-abut;
+  margin-top: 5rem;
+  @include flexbox(space-evenly, flex-start);
+
+  .box-abut-item-footer {
+    ul {
+      list-style: none;
+      margin-top: 5px;
+
+      li {
+        margin-top: 5px;
+      }
+
+      li a {
+        text-decoration: none;
+        color: $borderColor;
+      }
+    }
+  }
+}
+
+.box-abut-footer-top {
+  display: contents;
+}
+
+#companionship {
+  #tel {
+    margin: 5px;
+  }
+}
+
+.box-email {
+  h4 {
+    margin-bottom: 20px;
+  }
+
+  input, button {
+    border: 1px solid $borderColor;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  button {
+    border: none;
+    width: 6rem;
+    background: green;
+    color: $whiteColor;
+    cursor: pointer;
+
+    &:hover {
+      background: lightgreen;
+    }
+  }
+}
+
+
+#footer {
+  @include flexbox;
+  margin-top: 20px;
+  width: 100%;
+  height: 3rem;
+  background: $bgColor-product;
+  color: $whiteColor;
+}
+/*               loader                    */
+
+.loader-div {
+  position: fixed;
+  align-items: center;
+  display: flex;
+  width: 100% !important;
+  height: 100% !important;
+  background: white;
+  z-index: 1000 !important;
+}
+
+.loader {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.loader-div.hidden {
+  animation: fadeOut 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.loader-circle {
+  background: $bgColor-product;
+  width: 20px;
+  height: 20px;
+  margin: 0 4px;
+  border-radius: 50%;
+  animation: animate 2s infinite linear;
+}
+
+.loader-circle:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.loader-circle:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.loader-circle:nth-child(3) {
+  animation-delay: 1.5s;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}

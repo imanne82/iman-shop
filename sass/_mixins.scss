@@ -1,0 +1,50 @@
+@import "variables";
+
+@mixin flexbox($justify : center , $align : center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  @content;
+}
+
+@mixin nameGroupingProduct {
+  @content;
+  .nameGroupingProduct {
+    margin: 1rem;
+    border-radius: 50%;
+    @include flexbox;
+    width: 150px;
+    height: 150px;
+    background: $whiteColor;
+    box-shadow: 0 1px 6px rgb(122, 76, 0);
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 1px 6px black;
+    }
+
+    img {
+      width: 96px;
+      height: 96px;
+    }
+
+  }
+}
+
+@mixin media-query($width) {
+  @if ($width == 1550) {
+    @media (min-width: 1550px) {
+      @content;
+    }
+  } @else if ($width == 785) {
+    @media (max-width: 785px) {
+      @content;
+    }
+  } @else if ($width == 434) {
+    @media (max-width: 434px) {
+      @content;
+    }
+  }
+}
+
+
