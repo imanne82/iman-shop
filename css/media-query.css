@@ -13,7 +13,7 @@
   }
   #user-info .list {
     width: 50%;
-    margin: -1rem 1rem;
+    margin: 1rem;
   }
   #btn-start {
     z-index: 1;
@@ -87,6 +87,11 @@
     justify-content: center;
     align-items: center;
     flex-flow: column;
+  }
+}
+@media (min-width: 784px) {
+  #user-info {
+    backdrop-filter: blur(0) !important;
   }
 }
 @media (max-width: 434px) {

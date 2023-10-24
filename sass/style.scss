@@ -26,9 +26,8 @@
   height: 2px;
 
   .scroll {
-
     height: 100%;
-    background: $bgColor-product;
+    //background: $bgColor-product;
     box-shadow: 0 1px 6px $bgColor-product;
   }
 }
@@ -43,11 +42,10 @@
   width: 100%;
   height: 100vh;
   background-image: url("../image/background.svg");
-  background-position: bottom;
   background-size: cover;
   display: flex;
   justify-content: left;
-
+  background-position: center;
   #login-register {
     @include flexbox;
     position: absolute;
@@ -114,6 +112,12 @@
   }
 }
 
+#user-info {
+  .list .left-account {
+    border: none;
+  }
+}
+
 #start-site {
   position: absolute;
   width: 50%;
@@ -160,6 +164,7 @@
   margin: 20px 0 20px 0;
   width: 100%;
   height: auto;
+  padding-top: 1rem;
 }
 
 #search-box-container {
@@ -282,7 +287,7 @@
 
 .imgProduct {
   @include flexbox;
-  min-height: 180px;
+  height: 170px;
   border-radius: 10px / 20px;
   padding: 10px;
   width: 100%;
@@ -291,8 +296,8 @@
 
 .imgProduct img {
   border-radius: 3px;
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 100%;
   padding: 10px;
 }
 
@@ -424,6 +429,7 @@
   background: $bgColor-product;
   color: $whiteColor;
 }
+
 /*               loader                    */
 
 .loader-div {

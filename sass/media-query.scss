@@ -15,7 +15,7 @@
   }
   #user-info .list {
     width: 50%;
-    margin: -1rem 1rem;
+    margin: 1rem;
 
   }
   #btn-start {
@@ -78,6 +78,12 @@
   }
 }
 
+@include media-query(784) {
+  #user-info {
+    backdrop-filter: blur(0) !important;
+  }
+}
+
 @include media-query(434) {
   #btn-start h1 {
     font-size: 25px;
@@ -104,5 +110,6 @@
     position: relative;
     margin: 0 auto;
     width: 1520px !important;
+
   }
 }
